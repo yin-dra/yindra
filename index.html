@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Yindra — DJ · Book now</title>
+<meta name="description" content="Yindra (a.k.a. Will Fly): hip hop &amp; R&amp;B power mixes, deep house, afro house, techno and downtempo DJ. Played Café del Mar, Guaraná Ibiza, Razzmatazz and Piknic Électronik. Book for clubs, sunsets and private events.">
+<meta property="og:title" content="Yindra — DJ">
+<meta property="og:description" content="Hip Hop &amp; R&amp;B · Deep house · Afro · Techno · Downtempo. Café del Mar, Guaraná Ibiza, Razzmatazz, Piknic Électronik.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b;--bg-2:#141416;--card:#18181b;--ink:#ffffff;--ink-2:#b9b9c0;--muted:#77777f;--line:#26262b;
+  --accent:#ff2e88;--accent-ink:#0a0a0b;
+  --display:"Anton",Impact,"Arial Narrow",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --pad:clamp(16px,5vw,64px);
+  --max:1240px;
+  --r:14px;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:clip;}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img,video{display:block;max-width:100%;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--pad);}
+section{padding:clamp(64px,10vw,128px) 0;}
+
+/* type */
+.eyebrow{display:inline-block;font:600 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.95;margin:0;}
+h2{font-size:clamp(40px,7vw,88px);margin-top:14px;}
+.lede{max-width:40rem;margin:18px 0 0;font-size:clamp(16px,1.6vw,19px);color:var(--ink-2);}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font:700 14px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s;}
+.btn:hover{transform:translateY(-2px);}
+.btn--accent{background:var(--accent);color:var(--accent-ink);}
+.btn--accent:hover{background:#ff4f9b;}
+.btn--ghost{border-color:rgba(255,255,255,.6);color:#fff;}
+.btn--ghost:hover{background:#fff;color:var(--bg);}
+.btn svg{width:16px;height:16px;}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;}
+.nav.is-solid{background:rgba(10,10,11,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line);}
+.nav__in{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{font:400 26px/1 var(--display);letter-spacing:.04em;text-decoration:none;}
+.logo span{color:var(--accent);}
+.nav__links{display:flex;align-items:center;gap:30px;font:600 13px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;}
+.nav__links a{text-decoration:none;color:var(--ink-2);}
+.nav__links a:hover{color:#fff;}
+.nav .btn{height:42px;padding:0 20px;font-size:12px;color:var(--accent-ink);}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 clamp(48px,8vw,96px);overflow:hidden;}
+.hero__bg{position:absolute;inset:0;}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:62% 20%;animation:zoom 18s ease-out both;}
+.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.55) 45%,rgba(10,10,11,.1) 100%),linear-gradient(0deg,rgba(10,10,11,1) 0%,rgba(10,10,11,0) 40%);}
+@keyframes zoom{from{transform:scale(1.08);}to{transform:none;}}
+.hero__in{position:relative;}
+.hero h1{font-size:clamp(84px,17vw,230px);line-height:.85;margin-top:18px;}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero__genres{margin:20px 0 0;font:600 clamp(14px,1.6vw,18px)/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#fff;}
+.hero__genres span{color:var(--accent);padding:0 .4em;}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+.hero__seen{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:44px;font:600 12px/1.5 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+.hero__seen b{color:var(--muted);font-weight:600;}
+
+/* marquee */
+.marquee{overflow:hidden;background:var(--accent);color:var(--accent-ink);padding:18px 0;}
+.marquee__track{display:flex;gap:44px;width:max-content;animation:scroll 38s linear infinite;font:400 clamp(22px,3vw,34px)/1 var(--display);text-transform:uppercase;white-space:nowrap;}
+.marquee__track span::after{content:"✦";margin-left:44px;font-size:.6em;vertical-align:middle;}
+@keyframes scroll{to{transform:translateX(-50%);}}
+
+/* sounds */
+.sounds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:48px;}
+.sound{position:relative;border-radius:var(--r);overflow:hidden;min-height:440px;display:flex;align-items:flex-end;background:#000;text-decoration:none;}
+.sound img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .4s,transform .6s;}
+.sound:hover img{opacity:.85;transform:scale(1.03);}
+.sound::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,11,.96) 12%,rgba(10,10,11,.15) 70%);}
+.sound__txt{position:relative;z-index:1;padding:clamp(22px,3vw,36px);}
+.sound__num{font:400 18px/1 var(--display);color:var(--accent);}
+.sound h3{font-size:clamp(40px,5.4vw,72px);margin-top:10px;}
+.sound__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.sound__tags span{padding:7px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;font:600 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;}
+.sound__tags span:first-child{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);}
+.sound p{margin:16px 0 0;max-width:30rem;color:var(--ink-2);font-size:16px;}
+.sound--wide{grid-column:1/-1;min-height:320px;}
+.sound--wide img{object-position:50% 40%;}
+
+/* about + stats */
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:56px;}
+.stat{background:var(--bg);padding:28px 24px;}
+.stat b{display:block;font:400 clamp(44px,5vw,64px)/1 var(--display);color:#fff;}
+.stat b small{font-size:.5em;color:var(--accent);margin-left:2px;}
+.stat span{display:block;margin-top:10px;font-size:14px;color:var(--ink-2);}
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:center;}
+.about__img{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;}
+.about__img img{width:100%;height:100%;object-fit:cover;}
+.about__img .badge{position:absolute;left:18px;bottom:18px;padding:10px 14px;border-radius:10px;background:rgba(10,10,11,.8);backdrop-filter:blur(8px);font:600 12px/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase;}
+.about__img .badge b{color:var(--accent);}
+.about p{color:var(--ink-2);margin:16px 0 0;max-width:36rem;}
+.about p strong{color:#fff;font-weight:600;}
+
+/* listen */
+.listen{background:var(--bg-2);}
+.sets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:48px;}
+.set{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;}
+.set__top{display:flex;gap:18px;align-items:center;padding:20px;}
+.set__cover{flex:none;width:92px;height:92px;border-radius:10px;overflow:hidden;background:#000;}
+.set__cover img{width:100%;height:100%;object-fit:cover;}
+.set h3{font-size:clamp(24px,2.4vw,30px);line-height:1;}
+.set__meta{margin-top:8px;font:600 12px/1.4 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.set__meta i{font-style:normal;color:var(--accent);}
+.set__embed{margin-top:auto;border-top:1px solid var(--line);background:#111;}
+.set__embed iframe{display:block;width:100%;border:0;}
+.video{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:64px;}
+.video video{width:100%;border-radius:var(--r);background:#000;aspect-ratio:16/9;object-fit:cover;}
+.video p{color:var(--ink-2);margin:14px 0 0;}
+.more{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px;}
+
+/* gigs */
+.venues{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:48px;}
+.venue{padding:22px 20px;border:1px solid var(--line);border-radius:12px;background:var(--bg-2);}
+.venue b{display:block;font:400 22px/1.05 var(--display);text-transform:uppercase;letter-spacing:.02em;}
+.venue span{display:block;margin-top:8px;font-size:13px;color:var(--muted);}
+.venue--hi{border-color:var(--accent);}
+.venue--hi span{color:var(--accent);}
+.flyers{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--pad) 18px;margin:48px calc(var(--pad)*-1) 0;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+.flyers img{flex:none;height:clamp(280px,34vw,420px);width:auto;border-radius:10px;scroll-snap-align:start;background:#000;}
+.hint{margin:6px 0 0;font-size:13px;color:var(--muted);}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,18vw,240px);gap:12px;}
+.gallery figure{margin:0;position:relative;border-radius:12px;overflow:hidden;background:#000;}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+.gallery figure:hover img{transform:scale(1.04);}
+.gallery figcaption{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:8px;background:rgba(10,10,11,.75);font:600 11px/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;}
+.g-wide{grid-column:span 2;} .g-tall{grid-row:span 2;}
+
+/* events */
+.events{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:48px;}
+.event{position:relative;border-radius:var(--r);overflow:hidden;min-height:400px;display:flex;align-items:flex-end;background:#000;}
+.event img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .4s,transform .6s;}
+.event:hover img{opacity:.9;transform:scale(1.03);}
+.event::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,11,.95) 10%,rgba(10,10,11,0) 65%);}
+.event__txt{position:relative;z-index:1;padding:26px;}
+.event h3{font-size:34px;}
+.event p{margin:10px 0 0;font-size:15px;color:var(--ink-2);}
+
+/* booking */
+.book{background:var(--accent);color:var(--accent-ink);}
+.book .eyebrow{color:var(--accent-ink);}
+.book__grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start;}
+.book h2{font-size:clamp(56px,9vw,120px);}
+.book p{font-size:18px;margin:18px 0 0;max-width:30rem;}
+.book__direct{margin-top:30px;display:flex;flex-direction:column;gap:12px;font:700 15px/1.3 var(--body);}
+.book__direct a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;}
+.book__direct a:hover{text-decoration:underline;}
+form{background:var(--bg);color:var(--ink);border-radius:20px;padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;}
+form label{display:flex;flex-direction:column;gap:8px;min-width:0;font:600 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);}
+form .full{grid-column:1/-1;}
+input,select,textarea{width:100%;min-width:0;font:400 16px/1.4 var(--body);color:#fff;background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:14px;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);}
+textarea{min-height:120px;resize:vertical;}
+form .btn{width:100%;justify-content:center;}
+.form-note{grid-column:1/-1;margin:0;font-size:13px;color:var(--muted);}
+
+footer{padding:40px 0 56px;border-top:1px solid var(--line);}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;}
+.socials{display:flex;gap:10px;}
+.socials a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--ink-2);}
+.socials a:hover{border-color:var(--accent);color:var(--accent);}
+.socials svg{width:18px;height:18px;}
+.foot small{color:var(--muted);font-size:13px;}
+
+@media (max-width:900px){
+  .nav__links a:not(.btn){display:none;}
+  .sounds{grid-template-columns:minmax(0,1fr);}
+  .sound{min-height:380px;}
+  .about,.video,.book__grid{grid-template-columns:minmax(0,1fr);}
+  .sets{grid-template-columns:minmax(0,1fr);}
+  .venues{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .events{grid-template-columns:minmax(0,1fr);}
+  .event{min-height:300px;}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .g-m-wide{grid-column:span 2;}
+}
+@media (max-width:520px){
+  .hero__bg img{object-position:66% 30%;}
+  .hero__bg::after{background:linear-gradient(0deg,rgba(10,10,11,1) 8%,rgba(10,10,11,.55) 55%,rgba(10,10,11,.25) 100%);}
+  .hero__cta .btn{flex:1 1 100%;justify-content:center;}
+  form{grid-template-columns:minmax(0,1fr);}
+  .set__cover{width:72px;height:72px;}
+  .venue b{font-size:19px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav__in">
+    <a class="logo" href="#top">YIN<span>.</span>DRA</a>
+    <nav class="nav__links">
+      <a href="#sounds">Sound</a>
+      <a href="#listen">Listen</a>
+      <a href="#gigs">Gigs</a>
+      <a href="#events">Events</a>
+      <a href="#about">About</a>
+      <a class="btn btn--accent" href="#book">Book now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__bg"><img src="img/hero.jpg" alt="Yindra at the decks wearing an I Will Fly shirt" width="1800" height="1201" fetchpriority="high"></div>
+  <div class="container hero__in">
+    <span class="eyebrow">DJ · Barcelona · Ibiza</span>
+    <h1>Yindra<em>.</em></h1>
+    <p class="hero__genres">Hip Hop &amp; R&amp;B<span>/</span>Deep house · Afro · Techno<span>/</span>Downtempo</p>
+    <div class="hero__cta">
+      <a class="btn btn--accent" href="#book">Book Yindra
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#listen">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Listen to sets</a>
+    </div>
+    <div class="hero__seen"><b>Played at</b> Café del Mar · Guaraná Ibiza · Razzmatazz · Piknic Électronik</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-label="Venues and artists">
+  <div class="marquee__track">
+    <span>Café del Mar</span><span>Guaraná Ibiza</span><span>Razzmatazz</span><span>Piknic Électronik w/ Nina Kraviz</span><span>Bloc w/ Sven Tasnadi</span><span>Raum Barcelona</span><span>City Hall</span><span>Bikini</span>
+    <span aria-hidden="true">Café del Mar</span><span aria-hidden="true">Guaraná Ibiza</span><span aria-hidden="true">Razzmatazz</span><span aria-hidden="true">Piknic Électronik w/ Nina Kraviz</span><span aria-hidden="true">Bloc w/ Sven Tasnadi</span><span aria-hidden="true">Raum Barcelona</span><span aria-hidden="true">City Hall</span><span aria-hidden="true">Bikini</span>
+  </div>
+</div>
+
+<!-- SOUNDS -->
+<section id="sounds">
+  <div class="container">
+    <span class="eyebrow">The sound</span>
+    <h2>Two sides of the booth</h2>
+    <p class="lede">One night can go either way. Pick the side your room needs, or let the set travel between them.</p>
+    <div class="sounds">
+      <a class="sound" href="#book">
+        <img src="img/brick.jpg" alt="Yindra on turntables in a cap, white brick wall behind" loading="lazy">
+        <div class="sound__txt">
+          <div class="sound__num">01</div>
+          <h3>Hip Hop &amp; R&amp;B</h3>
+          <div class="sound__tags"><span>Power mixes</span><span>Hip hop</span><span>R&amp;B</span></div>
+          <p>Fast cuts, a new track every minute, and the hooks the whole room knows by heart. Built for parties that need to go up and stay up.</p>
+        </div>
+      </a>
+      <a class="sound" href="#listen">
+        <img src="img/razz.jpg" alt="Club stage lights at Razzmatazz" loading="lazy" style="object-position:45% 50%">
+        <div class="sound__txt">
+          <div class="sound__num">02</div>
+          <h3>Electronic</h3>
+          <div class="sound__tags"><span>Deep house</span><span>Afro house</span><span>Techno</span></div>
+          <p>The club side. Grooves that build for hours, from the warm-up to the peak.</p>
+        </div>
+      </a>
+      <a class="sound sound--wide" href="#listen">
+        <img src="img/vedra.jpg" alt="Sunset at Es Vedrà, Ibiza" loading="lazy">
+        <div class="sound__txt">
+          <div class="sound__num">03</div>
+          <h3>Downtempo</h3>
+          <div class="sound__tags"><span>Meditative techno</span><span>Organic downtempo</span></div>
+          <p>Slow, deep and hypnotic. For sunsets, ceremonies and rooms that turn inward.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about">
+      <div class="about__img">
+        <img src="img/pioneer.jpg" alt="Yindra smiling behind Pioneer decks under purple club lights" loading="lazy" width="600" height="900">
+        <div class="badge">Also known as <b>Will Fly</b></div>
+      </div>
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>A dancer behind the decks</h2>
+        <p><strong>Yindra reads a room like a dancer, because he is one.</strong> Born in Barcelona with Ibizan and African roots, he spent his first decade on stage with urban and contemporary dance companies, touring Spain, Germany, France, Italy and England.</p>
+        <p>Then came the booth. As <strong>Will Fly</strong> he played after-parties at Raum, plus Bloc, City Hall and Razzmatazz, and was on the Piknic Électronik bill with <strong>Nina Kraviz</strong>. In Ibiza he has played <strong>Café del Mar</strong> and <strong>Guaraná</strong>.</p>
+        <p>Two sides, one dancer: <strong>hip hop and R&amp;B power mixes</strong> for the party, <strong>deep house, afro and techno</strong> for the club, and <strong>meditative downtempo</strong> for sunsets and slow rooms.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20<small>+</small></b><span>Years dancing</span></div>
+      <div class="stat"><b>10<small>+</small></b><span>Years DJing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTEN -->
+<section class="listen" id="listen">
+  <div class="container">
+    <span class="eyebrow">Listen</span>
+    <h2>Press play</h2>
+    <p class="lede">Selected mixes from the Will Fly archive.</p>
+    <div class="sets">
+      <article class="set">
+        <div class="set__top">
+          <div class="set__cover"><img src="img/brick.jpg" alt="" loading="lazy"></div>
+          <div><h3>Juste Debout · Spain Qualifiers</h3><div class="set__meta"><i>House</i> · 48 min · most played</div></div>
+        </div>
+        <div class="set__embed"><iframe title="Juste Debout 2013 house set on Mixcloud" height="120" loading="lazy" allow="encrypted-media; fullscreen; autoplay" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FIWILLFLY%2Fjuste-debout-2013-spain-qualifiers-house1-will-fly%2F"></iframe></div>
+      </article>
+      <article class="set">
+        <div class="set__top">
+          <div class="set__cover"><img src="img/piknic.jpg" alt="" loading="lazy"></div>
+          <div><h3>Piknic Électronik Barcelona</h3><div class="set__meta"><i>Deep house · Funk</i> · 145 min · before Nina Kraviz</div></div>
+        </div>
+        <div class="set__embed"><iframe title="Will Fly at Piknic Électronik on Mixcloud" height="120" loading="lazy" allow="encrypted-media; fullscreen; autoplay" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FIWILLFLY%2Fwill-fly-piknic-electronik-408%2F"></iframe></div>
+      </article>
+      <article class="set">
+        <div class="set__top">
+          <div class="set__cover"><img src="img/decks-dark.jpg" alt="" loading="lazy"></div>
+          <div><h3>Sacred Geometry · Third Dimension</h3><div class="set__meta"><i>Techno · Deep</i> · 35 min</div></div>
+        </div>
+        <div class="set__embed"><iframe title="Sacred Geometry: Third Dimension on Mixcloud" height="120" loading="lazy" allow="encrypted-media; fullscreen; autoplay" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FIWILLFLY%2Fsacred-geometry-third-dimension%2F"></iframe></div>
+      </article>
+      <article class="set">
+        <div class="set__top">
+          <div class="set__cover"><img src="img/scarf.jpg" alt="" loading="lazy"></div>
+          <div><h3>Diving in the Deep IV</h3><div class="set__meta"><i>Dub · Deep · Spiritual</i> · 95 min</div></div>
+        </div>
+        <div class="set__embed"><iframe title="Diving in the Deep IV on Mixcloud" height="120" loading="lazy" allow="encrypted-media; fullscreen; autoplay" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&hide_artwork=1&feed=%2FIWILLFLY%2Fdiving-in-the-deep-iv-sacred-geometry%2F"></iframe></div>
+      </article>
+    </div>
+
+    <div class="video">
+      <video controls preload="none" poster="img/live-poster.jpg" playsinline>
+        <source src="img/live-nolabels.mp4" type="video/mp4">
+      </video>
+      <div>
+        <span class="eyebrow">Watch</span>
+        <h3 style="font-size:clamp(32px,4vw,48px);margin-top:12px">One minute, live</h3>
+        <p>A live session recorded for No Labels. One take, no edits.</p>
+      </div>
+    </div>
+
+    <div class="more">
+      <a class="btn btn--ghost" href="https://www.mixcloud.com/IWILLFLY/" target="_blank" rel="noopener">All 17 mixes on Mixcloud ↗</a>
+      <a class="btn btn--ghost" href="https://soundcloud.com/yindramusic" target="_blank" rel="noopener">SoundCloud ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- GIGS -->
+<section id="gigs">
+  <div class="container">
+    <span class="eyebrow">Gigs</span>
+    <h2>Where he's played</h2>
+    <div class="venues">
+      <div class="venue venue--hi"><b>Café del Mar</b><span>Ibiza</span></div>
+      <div class="venue venue--hi"><b>Guaraná</b><span>Ibiza</span></div>
+      <div class="venue venue--hi"><b>Piknic Électronik</b><span>Barcelona · w/ Nina Kraviz</span></div>
+      <div class="venue venue--hi"><b>Razzmatazz</b><span>Barcelona</span></div>
+      <div class="venue"><b>Bloc</b><span>w/ Sven Tasnadi, Ekkohaus</span></div>
+      <div class="venue"><b>Raum</b><span>After-parties · 2013–14</span></div>
+      <div class="venue"><b>City Hall</b><span>w/ Alex Lario</span></div>
+      <div class="venue"><b>Bikini</b><span>Barcelona</span></div>
+      <div class="venue"><b>BLVD Club</b><span>Barcelona</span></div>
+      <div class="venue"><b>KGB</b><span>Barcelona</span></div>
+      <div class="venue"><b>The Loft</b><span>Barcelona</span></div>
+      <div class="venue"><b>Saarlouis Dance Fest</b><span>Germany</span></div>
+    </div>
+    <div class="flyers" aria-label="Flyers">
+      <img src="img/flyers/bloc-2013-05-04.jpg" alt="Bloc flyer: Ekkohaus, Silvie Loto, Sven Tasnadi, Will Fly" loading="lazy">
+      <img src="img/flyers/raum-2013-12-07.jpg" alt="Raum flyer: Will Fly, Phacid" loading="lazy">
+      <img src="img/flyers/raum-2013-12-29.jpg" alt="Raum flyer: Hitch, Will Fly" loading="lazy">
+      <img src="img/flyers/raum-2014-01-25.jpg" alt="Raum flyer: Vincent Abbo, Will Fly, Sapphire" loading="lazy">
+      <img src="img/flyers/raum-2014-02-08.jpg" alt="Raum flyer: Alex Lario, Will Fly" loading="lazy">
+      <img src="img/flyers/cityhall-2017-11-01.jpg" alt="City Hall flyer: Alex Lario, Will Fly" loading="lazy">
+      <img src="img/flyers/bfinest.jpg" alt="BFinest flyer: Skizo, Will Fly, Enzo" loading="lazy">
+      <img src="img/flyers/piknic-2013.jpg" alt="Piknic Électronik Barcelona artist page for Will Fly" loading="lazy">
+    </div>
+    <p class="hint">Swipe for more flyers →</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="gallery">
+      <figure class="g-wide"><img src="img/razz.jpg" alt="Razzmatazz main stage lights" loading="lazy"><figcaption>Razzmatazz</figcaption></figure>
+      <figure class="g-tall"><img src="img/decks-dark.jpg" alt="Yindra at the turntables in a dark club" loading="lazy" style="object-position:55% 50%"></figure>
+      <figure><img src="img/scarf.jpg" alt="Yindra mixing on a laptop setup" loading="lazy"></figure>
+      <figure><img src="img/piknic.jpg" alt="Yindra in the Piknic Électronik booth" loading="lazy"><figcaption>Piknic Électronik</figcaption></figure>
+      <figure class="g-m-wide"><img src="img/faro.jpg" alt="Yindra DJing in front of a crowd" loading="lazy"></figure>
+      <figure class="g-wide"><img src="img/stc.jpg" alt="Save The Cheerleader visuals behind the booth" loading="lazy"><figcaption>Save The Cheerleader</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events" style="padding-top:0">
+  <div class="container">
+    <span class="eyebrow">Book for</span>
+    <h2>The right sound for the room</h2>
+    <div class="events">
+      <article class="event">
+        <img src="img/vedra.jpg" alt="Sunset at Es Vedrà, Ibiza" loading="lazy">
+        <div class="event__txt"><h3>Sunsets &amp; beach</h3><p>Downtempo that turns into deep house as the light goes. Beach clubs, terraces, rooftops.</p></div>
+      </article>
+      <article class="event">
+        <img src="img/razz.jpg" alt="Club stage lights" loading="lazy" style="object-position:40% 50%">
+        <div class="event__txt"><h3>Clubs &amp; festivals</h3><p>Hip hop &amp; R&amp;B power mixes, or deep house, afro and techno. Warm-up or headline.</p></div>
+      </article>
+      <article class="event">
+        <img src="img/pioneer.jpg" alt="Yindra DJing at a private party" loading="lazy" style="object-position:50% 25%">
+        <div class="event__txt"><h3>Private events</h3><p>Villas, brand launches, weddings, ecstatic dance. A set built around your guests.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="book" id="book">
+  <div class="container book__grid">
+    <div>
+      <span class="eyebrow">Booking</span>
+      <h2>Let's make it move</h2>
+      <p>Send the date, the venue and the crowd, and I'll reply with availability and a rate.</p>
+      <div class="book__direct">
+        <a href="mailto:web3ylibertad@gmail.com?subject=Booking%20request">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          web3ylibertad@gmail.com</a>
+        <a href="https://ig.me/m/yin.dra" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          DM @yin.dra on Instagram</a>
+      </div>
+    </div>
+    <form id="bookForm">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Date<input name="date" type="date"></label>
+      <label>Event type
+        <select name="type">
+          <option>Club / festival</option><option>Hip hop &amp; R&amp;B party</option><option>Sunset / beach club</option><option>Private event</option><option>Ecstatic dance / ceremony</option><option>Other</option>
+        </select></label>
+      <label class="full">Venue &amp; city<input name="venue"></label>
+      <label class="full">Tell me about it<textarea name="msg" placeholder="Crowd, set length, budget…"></textarea></label>
+      <button class="btn btn--accent full" type="submit">Send booking request</button>
+      <p class="form-note" id="formNote">Opens your email app with the request ready to send.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot">
+    <a class="logo" href="#top">YIN<span>.</span>DRA</a>
+    <div class="socials">
+      <a href="https://www.instagram.com/yin.dra/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="https://soundcloud.com/yindramusic" target="_blank" rel="noopener" aria-label="SoundCloud"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 14h1v4H2zm2-2h1v6H4zm2-1h1v7H6zm2-2h1v9H8zm2-1h1v10h-1zm3-2c3 0 5 2 5.4 4.6A3 3 0 1 1 19 18h-6z"/></svg></a>
+      <a href="https://www.mixcloud.com/IWILLFLY/" target="_blank" rel="noopener" aria-label="Mixcloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 17a4 4 0 0 1 0-8 6 6 0 0 1 11.3 1.5A3.5 3.5 0 0 1 17 17z"/></svg></a>
+    </div>
+    <small>© 2026 Yindra · a.k.a. Will Fly</small>
+  </div>
+</footer>
+
+<script>
+// solid nav after scrolling past the top
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('is-solid',scrollY>40);
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// booking form → email draft. Set BOOKING_EMAIL before publishing; while empty it falls back to an Instagram DM.
+const BOOKING_EMAIL='web3ylibertad@gmail.com';
+document.getElementById('bookForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=new FormData(e.target);
+  const body=`Name: ${f.get('name')}\nEmail: ${f.get('email')}\nDate: ${f.get('date')}\nEvent: ${f.get('type')}\nVenue: ${f.get('venue')}\n\n${f.get('msg')}`;
+  if(BOOKING_EMAIL){
+    location.href=`mailto:${BOOKING_EMAIL}?subject=${encodeURIComponent('Booking request – '+f.get('type')+' – '+(f.get('date')||''))}&body=${encodeURIComponent(body)}`;
+  }else{
+    try{navigator.clipboard.writeText(body);}catch(_){}
+    document.getElementById('formNote').textContent='Copied to your clipboard. Paste it into the Instagram DM that just opened.';
+    window.open('https://ig.me/m/yin.dra','_blank','noopener');
+  }
+});
+</script>
+</body>
+</html>
